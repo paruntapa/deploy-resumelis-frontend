@@ -9,24 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Source
-      uses: actions/checkout@v4
-    - name: Create .env file
-      run: echo "BACKEND_URL=${{secrets.BACKEND_URL}}" >> .env
-    - name: build docker image
-      run: docker build -t job-resume-frontend .
-    - name: login to docker hub
-      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
-    - name: push docker image
-      run: docker push job-resume-frontend:latest
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Create .env file
+        run: echo "BACKEND_URL=${{secrets.BACKEND_URL}}" >> .env
+      - name: build docker image
+        run: docker build -t job-resume-frontend .
+      - name: login to docker hub
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+      - name: push docker image
+        run: docker push job-resume-frontend:latest
 
-deploy:
-  needs: build
-  runs-on: self-hosted
-  steps:
-    - name: Pull image from dockerhub
-      run: docker pull job-resume-frontend:latest
-    - name: delete old container
-      run: docker rn -f nextjs-app-container
-    - name: Run docker container
-      run: docker run -d -p 3000:3000 --name nextjs-app-container job-resume-frontend
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from dockerhub
+        run: docker pull job-resume-frontend:latest
+      - name: delete old container
+        run: docker rn -f nextjs-app-container
+      - name: Run docker container
+        run: docker run -d -p 3000:3000 --name nextjs-app-container job-resume-frontend   
