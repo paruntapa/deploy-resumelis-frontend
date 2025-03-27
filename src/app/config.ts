@@ -1,2 +1,1 @@
-const BACKEND_URL = process.env.BACKEND_URL
-console.log(process.env.BACKEND_URL);
+export const BACKEND_URL = "http://18.208.115.67:8080"
