@@ -30,6 +30,6 @@ jobs:
       - name: Pull image from dockerhub
         run: docker pull sundoladocker/job-resume-frontend:latest
       - name: delete old container
-        run: docker rn -f nextjs-app-container
+        run: docker rm -f nextjs-app-container
       - name: Run docker container
         run: docker run -d -p 3000:3000 --name nextjs-app-container sundoladocker/job-resume-frontend
