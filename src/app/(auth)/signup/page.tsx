@@ -5,10 +5,9 @@ import { ToastContainer } from "react-toastify";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import { BACKEND_URL } from "@/app/config";
 
 function Signup() {
-
+  const BACKEND_URL = process.env.BACKEND_URL
   const router = useRouter();
   const [signupInfo, setSignupInfo] = useState({
     name: "",

@@ -14,10 +14,9 @@ import { motion} from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { JobCard } from "./JobCard";
-import { BACKEND_URL } from "@/app/config";
 
 const UploadResume = () => {
-
+  const BACKEND_URL = process.env.BACKEND_URL
   const [jobListings, setJobListings] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const router = useRouter();
