@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
+import dotenv from "dotenv";
+dotenv.config({ path: '../../.env' });
 
 export default function Home() {
   return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UploadResume from "@/components/UploadResume";
+
 const page = () => {
   return (
     <div className="max-w-6xl  mx-auto px-4 py-24 min-h-screen">

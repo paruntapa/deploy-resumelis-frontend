@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
-import { BACKEND_URL } from "@/app/config";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
+import { BACKEND_URL } from "@/app/config";
 
 function Signup() {
+
   const router = useRouter();
   const [signupInfo, setSignupInfo] = useState({
     name: "",
