@@ -9,20 +9,15 @@ import {
 import { UploadModal } from "@/components/ui/upload";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { BACKEND_URL, CLOUDFLARE_URL } from "@/app/config";
 import toast, { Toaster } from "react-hot-toast";
 import { motion} from "framer-motion";
-import { BACKEND_URL } from "@/app/config";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { JobCard } from "./JobCard";
+import { BACKEND_URL } from "@/app/config";
 
-interface UploadedFile {
-  name: string;
-  status: "uploaded" | "failed";
-  timestamp: Date;
-}
 const UploadResume = () => {
+
   const [jobListings, setJobListings] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const router = useRouter();
@@ -66,7 +61,6 @@ const UploadResume = () => {
 
       const { url, key } = res.data;
 
-      console.log(url, key, file);
       // Upload file to S3 using pre-signed URL
       await axios.put(url, file, {
         headers: {
@@ -80,7 +74,6 @@ const UploadResume = () => {
       });
 
       const token = localStorage.getItem("loggedInUser"); // or sessionStorage.getItem("token")
-      console.log("JWT Token:", token);
       const parseRes = await axios.get(`${BACKEND_URL}/parse-resume`, {
         params: { key },
         headers: {
@@ -110,15 +103,12 @@ const UploadResume = () => {
 
     const token = localStorage.getItem("loggedInUser"); 
     
-    console.log("JWT Token:", token);
-    
     const res = await axios.get(`${BACKEND_URL}/user-job-listings`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    console.log("Job Listings:", res.data.jobListings);
     setJobListings(res.data.jobListings);
   };
 
