@@ -15,7 +15,7 @@ export default function Home() {
           <div className="my-8">
             <h2 className="text-3xl text-center md:text-left md:text-6xl">
               <span className=" text-outline font-extrabold md:text-8xl">
-                AI-SuperPowere{" "}
+                AI-SuperPowered{" "}
               </span>
               <span className="text-gray-500 font-extrabold">
                 – A better way to
