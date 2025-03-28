@@ -13,19 +13,16 @@ const Header = () => {
     >
       <Container>
         <div className="flex items-center gap-4 w-full">
-          {/* logo section */}
+         
           <LogoContainer />
 
-          {/* navigation section */}
           <nav className="hidden md:flex items-center gap-3">
             <NavigationRoutes />
           </nav>
 
           <div className="ml-auto flex items-center gap-6">
-            {/* profile section */}
             <ProfileContainer />
 
-            {/* mobile toggle section */}
             <ToggleContainer />
           </div>
         </div>
