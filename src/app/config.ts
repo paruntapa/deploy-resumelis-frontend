@@ -1,1 +1,1 @@
-export const BACKEND_URL = "https://bejobrec.telzac.site"
+export const BACKEND_URL = "https://npmresumelisvercel-wuzh.vercel.app/"
